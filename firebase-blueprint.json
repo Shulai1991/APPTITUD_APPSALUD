@@ -1,0 +1,165 @@
+{
+  "entities": {
+    "MedicalCenter": {
+      "title": "MedicalCenter",
+      "description": "Model representing a clinical branch/medical center",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "address": { "type": "string" },
+        "cuil": { "type": "string" },
+        "phone": { "type": "string" },
+        "active": { "type": "boolean" },
+        "loginBannerDesktop": { "type": "string" },
+        "loginBannerMobile": { "type": "string" }
+      },
+      "required": ["id", "name", "address", "phone"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A system user / staff account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "fullName": { "type": "string" },
+        "role": { "type": "string" },
+        "active": { "type": "boolean" },
+        "centerId": { "type": "string" },
+        "license": { "type": "string" },
+        "permissions": { "type": "object" }
+      },
+      "required": ["id", "username", "fullName", "role", "permissions", "active"]
+    },
+    "Patient": {
+      "title": "Patient",
+      "description": "Clinical patient file with history, odontogram, invoices, etc.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "name": { "type": "string" },
+        "lastName": { "type": "string" },
+        "birthDate": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "dni": { "type": "string" },
+        "gender": { "type": "string" },
+        "validation_details": { "type": "string" },
+        "validationStatus": { "type": "string" },
+        "healthInsurance": { "type": "string" },
+        "insuranceId": { "type": "string" },
+        "centerId": { "type": "string" },
+        "clinicalHistory": { "type": "array" },
+        "odontogram": { "type": "array" },
+        "invoices": { "type": "array" },
+        "prescriptions": { "type": "array" }
+      },
+      "required": ["id", "name", "lastName", "dni", "centerId"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "An appointment booking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "patientId": { "type": "number" },
+        "patientName": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string" },
+        "professionalId": { "type": "number" },
+        "centerId": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "cancellationReason": { "type": "string" },
+        "telemedicine": { "type": "boolean" },
+        "jitsiRoomUrl": { "type": "string" }
+      },
+      "required": ["id", "patientId", "patientName", "date", "time", "reason", "status", "professionalId", "centerId"]
+    },
+    "Professional": {
+      "title": "Professional",
+      "description": "A clinic specialist/professional details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "name": { "type": "string" },
+        "specialty": { "type": "string" },
+        "license": { "type": "string" },
+        "avatar": { "type": "string" },
+        "slotInterval": { "type": "number" },
+        "startHour": { "type": "string" },
+        "endHour": { "type": "string" },
+        "blockedRanges": { "type": "array" },
+        "weeklySchedule": { "type": "array" },
+        "telemedicineWeeklySchedule": { "type": "array" },
+        "telemedicineEnabled": { "type": "boolean" },
+        "centerId": { "type": "string" }
+      },
+      "required": ["id", "name", "specialty", "avatar", "slotInterval", "startHour", "endHour"]
+    },
+    "PriceListItem": {
+      "title": "PriceListItem",
+      "description": "Treatments aranceles and standard practices pricing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "centerId": { "type": "string" }
+      },
+      "required": ["id", "name", "price"]
+    },
+    "ClinicSettings": {
+      "title": "ClinicSettings",
+      "description": "Scoped configuration for a medical center",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "address": { "type": "string" },
+        "cuil": { "type": "string" },
+        "phone": { "type": "string" },
+        "consentTemplate": { "type": "string" },
+        "telemedicineModuleActive": { "type": "boolean" }
+      },
+      "required": ["name"]
+    }
+  },
+  "firestore": {
+    "/centers/{centerId}": {
+      "schema": "MedicalCenter",
+      "description": "Information about medical branch centers"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "System operators and staff login accounts"
+    },
+    "/patients/{patientId}": {
+      "schema": "Patient",
+      "description": "Patient records and clinical notes"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "Booked appointment schedules"
+    },
+    "/professionals/{professionalId}": {
+      "schema": "Professional",
+      "description": "Clinic doctors and specialists with their telemedicine details"
+    },
+    "/priceListItems/{itemId}": {
+      "schema": "PriceListItem",
+      "description": "Clinic medical / dental treatment catalog"
+    },
+    "/clinicSettings/{centerId}": {
+      "schema": "ClinicSettings",
+      "description": "Scoped clinic configurations and metadata"
+    }
+  }
+}

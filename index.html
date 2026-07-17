@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF--8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diseños con Apptitud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+              display: ['"Outfit"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              primary: {
+                DEFAULT: '#0d9488', // Emerald/Teal by default for a modern medical feel
+                '50': '#f0fdfa',
+                '100': '#ccfbf1',
+                '200': '#99f6e4',
+                '300': '#5eead4',
+                '400': '#2dd4bf',
+                '500': '#14b8a6',
+                '600': '#0d9488',
+                '700': '#0f766e',
+                '800': '#115e59',
+                '900': '#134e4a',
+                '950': '#042f2e'
+              },
+              bordo: {
+                DEFAULT: '#800020',
+                '50': '#fdf2f4',
+                '100': '#fbe5ea',
+                '200': '#f7cbd6',
+                '300': '#f0a1b5',
+                '400': '#e56d8e',
+                '500': '#d6416b',
+                '600': '#be2551',
+                '700': '#9f193e',
+                '800': '#800020',
+                '900': '#701630',
+                '950': '#410717'
+              }
+            },
+            boxShadow: {
+              'premium': '0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02)',
+              'premium-hover': '0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 1px 5px rgba(0, 0, 0, 0.03)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      h1, h2, h3, h4, .font-display {
+        font-family: "Outfit", "Inter", sans-serif !important;
+        letter-spacing: -0.02em;
+      }
+      .font-mono, code, pre, .mono-text {
+        font-family: "JetBrains Mono", monospace !important;
+      }
+      /* Modern smooth scrollbar across the app */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 9999px;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #475569;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-100 dark:bg-slate-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

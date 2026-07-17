@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Centers Collection
+    match /centers/{centerId} {
+      allow read, write: if true;
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Patients Collection
+    match /patients/{patientId} {
+      allow read, write: if true;
+    }
+
+    // Appointments Collection
+    match /appointments/{appointmentId} {
+      allow read, write: if true;
+    }
+
+    // Professionals Collection
+    match /professionals/{professionalId} {
+      allow read, write: if true;
+    }
+
+    // Price List Items Collection
+    match /priceListItems/{itemId} {
+      allow read, write: if true;
+    }
+
+    // Clinic Settings Collection
+    match /clinicSettings/{centerId} {
+      allow read, write: if true;
+    }
+
+    // System/Initializer metadata
+    match /system/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

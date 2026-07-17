@@ -1,0 +1,6 @@
+{
+  "name": "DISEÑOS CON APPTITUD",
+  "description": "Una aplicación completa para la gestión de consultorios odontológicos, incluyendo historias clínicas, odontograma interactivo, facturación y creación de recetas médicas.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
